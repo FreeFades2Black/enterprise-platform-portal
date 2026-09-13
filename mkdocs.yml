@@ -1,0 +1,87 @@
+site_name: Enterprise Platform Delivery & Reliability Portal
+site_description: Mission Control & Internal Developer Platform for 50-Cluster DoD Lakehouse Fleet
+site_author: Lead Platform Infrastructure Architect
+site_url: https://freefades2black.github.io/enterprise-platform-portal
+
+repo_name: FreeFades2Black/enterprise-platform-portal
+repo_url: https://github.com/FreeFades2Black/enterprise-platform-portal
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for dark mode / mission control
+    - scheme: slate
+      primary: cyan
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to Mission Control Light Mode
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Mission Control Dark Mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+extra_css:
+  - assets/css/mission-control.css
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Mission Control: index.md
+  - Executive Fleet Overview:
+      - Architecture & Deployment Topology: fleet-overview/topology.md
+      - Multi-Site Governance & STIG Baseline: fleet-overview/compliance.md
+  - Fleet GitOps & Delivery Engine:
+      - Argo CD ApplicationSet & Staged Waves: fleet-gitops/rollouts.md
+      - Lakehouse Substrate Architecture: fleet-gitops/substrate.md
+      - Ephemeral Canary CI/CD Gating: fleet-gitops/canary-gate.md
+      - Hardened OCI Packaging & Cosign: fleet-gitops/oci-packaging.md
+  - Field SRE & Resilience Vault:
+      - Incident Post-Mortems & RCAs: resilience-vault/incident-rcas.md
+      - Deterministic Triage Runbooks: resilience-vault/runbooks.md
+      - Golden Signals as Code: resilience-vault/golden-signals.md
+  - Interactive Fleet Health Matrix: interactive-matrix/fleet-matrix.md
