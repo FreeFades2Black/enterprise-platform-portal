@@ -6,6 +6,7 @@
   <a href="https://github.com/FreeFades2Black/fleet-lakehouse-operator/actions/workflows/package-oci.yml"><img src="https://img.shields.io/github/actions/workflow/status/FreeFades2Black/fleet-lakehouse-operator/package-oci.yml?branch=main&label=Delivery%20CLI%20OCI%20Build&style=flat-square&logo=docker" alt="Delivery CLI OCI Build" /></a>
   <a href="https://github.com/FreeFades2Black/platform-resilience-fieldguide/actions/workflows/package-oci.yml"><img src="https://img.shields.io/github/actions/workflow/status/FreeFades2Black/platform-resilience-fieldguide/package-oci.yml?branch=main&label=Field%20SRE%20OCI%20Suite&style=flat-square&logo=linux" alt="Field SRE OCI Suite" /></a>
   <a href="https://github.com/FreeFades2Black/enterprise-platform-portal/actions/workflows/deploy-portal.yml"><img src="https://img.shields.io/github/actions/workflow/status/FreeFades2Black/enterprise-platform-portal/deploy-portal.yml?branch=main&label=Portal%20CI%2FCD%20Deploy&style=flat-square&logo=github" alt="Portal CI/CD Deploy" /></a>
+  <a href="https://github.com/FreeFades2Black/platform-flight-simulator"><img src="https://img.shields.io/github/actions/workflow/status/FreeFades2Black/platform-flight-simulator/ci.yml?branch=main&label=Flight%20Simulator%20Sandbox&style=flat-square&logo=react" alt="Platform Flight Simulator" /></a>
 </div>
 
 Delivery specification, fleet topology, and incident triage catalog for multi-site Kubernetes deployments running the Lakehouse substrate (Strimzi Kafka, Trino, Iceberg). Covers staged Argo CD rollout rings, Iron Bank policy baselines, and post-mortem analyses from field triage.
@@ -16,6 +17,7 @@ Delivery specification, fleet topology, and incident triage catalog for multi-si
 
 | Subsystem | Verified Production Manifest | Scope & Implementation | Verification Target |
 |:---|:---|:---|:---|
+| **Digital Twin Sandbox** | [`FreeFades2Black/platform-flight-simulator`](https://github.com/FreeFades2Black/platform-flight-simulator) | Interactive React Flow sandbox with packet physics, virtual terminal, & deep inspector | [Interactive Flight Simulator](https://github.com/FreeFades2Black/platform-flight-simulator) |
 | **Fleet GitOps Engine** | [`argocd/applicationset-fleet-matrix.yaml`](https://github.com/FreeFades2Black/fleet-lakehouse-operator/blob/main/argocd/applicationset-fleet-matrix.yaml) | ApplicationSet with `RollingSync` across 3 deployment rings | [Rollout Specification](fleet-gitops/rollouts.md) |
 | **Lakehouse Substrate** | [`helm/lakehouse-substrate/`](https://github.com/FreeFades2Black/fleet-lakehouse-operator/tree/main/helm/lakehouse-substrate) | Strimzi Kafka 3.7.0, Trino 435 (NVMe spill), Nessie catalog | [Substrate Architecture](fleet-gitops/substrate.md) |
 | **DoD Policy Baseline** | [`security/kyverno/dod-ironbank-baseline.yaml`](https://github.com/FreeFades2Black/fleet-lakehouse-operator/blob/main/security/kyverno/dod-ironbank-baseline.yaml) | Enforces `runAsNonRoot`, `readOnlyRootFilesystem`, capability drops | [Compliance Spec](fleet-overview/compliance.md) |
