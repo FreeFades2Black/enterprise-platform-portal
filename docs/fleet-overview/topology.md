@@ -42,10 +42,10 @@ graph TB
         S50["site50 (Tactical Edge Unit)"]
     end
 
-    ArgoMaster -->|"RollingSync Wave 0"| Ring0
-    Ring0 -->|"Gated Promotion"| Ring1
-    Ring1 -->|"Cryptographic Bundle"| Diode
-    Diode --> Ring2
+    ArgoMaster -->|"RollingSync Wave 0"| S01 & S02
+    S01 & S02 -->|"Gated Promotion"| S03 & S14 & S25
+    S03 & S14 & S25 -->|"Cryptographic Air-Gap Transfer"| Diode
+    Diode --> S26 & S38 & S50
 ```
 
 ---
